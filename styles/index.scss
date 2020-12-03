@@ -1,66 +1,56 @@
+@import 'layout.scss';
+
 * {
-  box-sizing: border-box;
-}
+     box-sizing: border-box;
+   }
+   .content {
+     display: flex;
+     flex-direction: column;
+   }
+   span {
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     text-transform: lowercase;
+     background-color: #faebd7;
+     padding: 8px;     
+     border-radius: 4px;
+     
+   }
+   .item {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 200px;
+   }
+   .navigation {
+     background-color: #ff7f50;
+     flex-grow: 1;
+     flex-basis: 0;
+   }
+   .product__list {
+     background-color: #006400;
+     flex-grow: 1;
+     flex-basis: 0;
+   }
+   .news__bar {
+     background-color: #0ff;
+     flex-grow: 1;
+   }
 
-html {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 16px;
-}
+   @include small-screen {
+     .products {
+          display: flex;
+          flex-grow: 2;
+          flex-basis: 0;
+        }
+   }
 
-.header {
-  background-color: #006400;
-}
+   @include large-screen {
+     .content {
+          display: flex;
+          flex-direction: row;
+        }
+        .news__bar {
+          flex-basis: 0;
+        }
+   }
 
-.menu {
-  display: flex;
-  margin: 0;
-  padding: 0;
-  margin-left: 3em;
-  text-transform: uppercase;
-  align-items: center;
-  cursor: pointer;
-  &__item {
-    display: flex;
-    align-items: center;
-    height: 3em;
-    padding: 0;
-    padding-left: 8px;
-    padding-right: 8px;
-    list-style-type: none;
-    color: white;
-
-    &_active {
-      color: yellow;
-      position: relative;
-      &:hover > .submenu {
-        display: grid;
-      }
-    }
-    &:hover {
-      background-color: #9acd32;
-    }
-  }
-}
-
-.submenu {
-  position: absolute;
-  top: 48px;
-  margin: 0;
-  padding: 0;
-  background-color: #ff7f50;
-  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
-  color: #fff;
-  min-width: 120px;
-  z-index: 1;
-  display: none;
-
-  &__item {
-    list-style-type: none;
-    padding-left: 8px;
-    padding-right: 8px;
-
-    &:hover {
-      color: black;
-    }
-  }
-}
