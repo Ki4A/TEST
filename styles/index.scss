@@ -1,10 +1,39 @@
-@import 'header.scss';
-
+@import 'breakpoints.scss';
 
 * {
      box-sizing: border-box;
 }
 
-html {
-     font-family: Verdana, Geneva, Tahoma, sans-serif;
+body {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 100vh;
+}
+
+.square {
+     width: 100px;
+     height: 100px;
+     background-color: coral;
+     margin: 16px; //units
+
+     @include for-medium-up {
+          background-color: aqua;
+     }
+
+     @include for-large-up {
+          background-color: gold;
+     }
+}
+
+.container {
+     display: flex;
+     @include for-portrait {
+          flex-direction: column; 
+     }
+
+     @include for-landscape {
+          flex-direction: row; 
+     }
+     
 }
